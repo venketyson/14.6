@@ -1,0 +1,57 @@
+1. Explain what is Thrfit.
+
+Apache thrift supports cross language remote procedure call where one program can use to request a 
+service from a program located in another computer in a network, without having 
+to understand network details.
+The client requires a way to know the exposed functions by this service and their 
+parameters.
+it comes in its owl interface definition language
+
+
+===================================================================================================================================
+
+2. Explain what is REST.
+
+*REST is  Representational State Transfer.
+*It is based on  existing web-based technologies and uses HTTP protocol for web applications.
+*It uses the common HTable-based client API to access the tables.
+*since it uses standard protocol it is  ideal for communicating between heterogeneous systems
+===================================================================================================================================
+
+3. What is bulk import in Hbase?
+*It is method of loading bulk data into hbase
+*HBase includes several methods of loading data into tables.
+* The most straightforward method is to either use the TableOutputFormat class from a MapReduce job, or use the normal client APIs; however, these are not always the most efficient methods.
+*The bulk import feature uses a MapReduce job to output table data in HBase's internal data format, and then directly loads the generated StoreFiles into a running cluster. 
+*bulk import will use less CPU and network resources than simply using the HBase API
+=================================================================================================================================
+
+4. What is meant by a work flow and what is an oozie workflow.
+
+A workflow is defined in an XML file, which specifies a start action. 
+There are special actions such as fork and join (which fork and join dependency graph), as well as the ability to reference a "sub-workflow" defined in another XML file.
+OOZIE workflow:   
+* Oozie can run workflow jobs with MapReduce and Pig action nodes
+* Oozie Workflow jobs are Directed Acyclical Graphs (DAGs) of actions
+To run oozie workflows, two files are needed.
+1. workflow.xml (stored in HDFS)
+It contains the structure of workflow.
+2. job.properties (stored in local)
+ It contains the configuration properties  		
+
+==================================================================================================================================
+
+5. How can you track a Oozie job.
+*Workflow jobs can be configured to make an HTTP GET notification upon start and end of a workflow action node and upon the completion of a workflow job.
+
+*Oozie will make a best effort to deliver the notifications, in case of failure it will retry the notification a pre-configured number of times at a pre-configured interval before giving up.
+*oozie Jobtracker  is used to track status of job
+=================================================================================================================================
+6. What kind of jobs can be scheduled with Oozie.
+
+Oozie is integrated with the rest of the Hadoop stack supporting several types of Hadoop jobs out of the box (such as Java map-reduce, Streaming map-reduce, Pig, Hive, Sqoop and Distcp) as well as system specific jobs (such as Java programs and shell scripts)
+==================================================================================================================================
+7. What is meant by oozie co-ordinator and how it is useful.
+
+*Oozie Coordinator is a collection of predicates (conditional statements based on timefrequency and data availability) and actions (i.e. Hadoop Map/Reduce jobs, Hadoop file   system, Hadoop Streaming, Pig, Java and Oozie sub-workflow).
+*Coordinator applications allow users to schedule complex workflows, including workflows that are scheduled regularly. Oozie Coordinator models the workflow execution triggers in the form of time, data or event predicates. The workflow job mentioned inside the Coordinator is started only after the given conditions are satisfied
